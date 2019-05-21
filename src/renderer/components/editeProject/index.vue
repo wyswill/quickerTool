@@ -152,6 +152,11 @@ export default {
           .el-input {
             width: 82%;
           }
+          span{
+            &:hover{
+              cursor: pointer;
+            }
+          }
         }
       }
     }
