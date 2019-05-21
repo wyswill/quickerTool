@@ -12,12 +12,7 @@
           <span slot="label">
             <i class="iconfont icon-article" style="font-size:20px;"></i>
           </span>
-          <div class="head">
-            <el-input placeholder="搜索图标" prefix-icon="el-icon-search" v-model="input"></el-input>
-            <span>
-              <i class="iconfont icon-jiahao-"></i>新建
-            </span>
-          </div>
+          
         </el-tab-pane>
         <el-tab-pane>
           <span slot="label">
@@ -57,6 +52,22 @@ export default {
     }
     .el-tabs {
       width: 100%;
+      .el-tab-pane {
+        .head {
+          width: 75%;
+          span {
+            position: absolute;
+            top: 20px;
+            right: 0px;
+            i {
+              font-size: 32px;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
