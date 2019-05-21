@@ -7,15 +7,21 @@
         <i class="iconfont icon-usb"></i>
         <i class="iconfont icon-jiegou"></i>
       </el-aside>
-      <el-tabs v-model="activeName" :stretch="false">
+      <el-tabs v-model="activeName" :stretch="false" type="border-card">
         <el-tab-pane>
           <span slot="label">
-            <i class="iconfont icon-tucengzhizuoyuweihu"></i>
+            <i class="iconfont icon-article" style="font-size:20px;"></i>
           </span>
+          <div class="head">
+            <el-input placeholder="搜索图标" prefix-icon="el-icon-search" v-model="input"></el-input>
+            <span>
+              <i class="iconfont icon-jiahao-"></i>新建
+            </span>
+          </div>
         </el-tab-pane>
         <el-tab-pane>
           <span slot="label">
-            <i class="iconfont icon-tucengzhizuoyuweihu"></i>
+            <i class="iconfont icon-tucengzhizuoyuweihu" style="font-size:20px;"></i>
           </span>
         </el-tab-pane>
       </el-tabs>
@@ -27,7 +33,8 @@
 export default {
   data() {
     return {
-      activeName: "0"
+      activeName: "0",
+      input: ""
     };
   }
 };
