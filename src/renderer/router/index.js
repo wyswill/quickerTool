@@ -26,15 +26,15 @@ export default new Router({
               name: "myProject",
               path: "myProject",
               component: require("@/components/project/index.vue").default
-            },
-            {
-              name: "editeProject",
-              path: "editeProject",
-              component: require("@/components/editeProject/index.vue").default
-            },
+            }
           ]
         }
       ]
+    },
+    {
+      path: "/editeProject",
+      name: "editeProject",
+      component: require("@/components/editeProject/index.vue").default
     },
     {
       path: "*",

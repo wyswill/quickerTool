@@ -26,7 +26,7 @@ export default {
           type: "project",
           num: 1,
           imgSrc: require("../../assets/user.png"),
-          name: "樱草单商户微信小程序",
+          name: "其他单商户微信小程序",
           lastEditeTime: "大约一个月之前"
         },
         {
@@ -40,7 +40,7 @@ export default {
           type: "project",
           num: 1,
           imgSrc: require("../../assets/user.png"),
-          name: "樱草单商户微信小程序",
+          name: "苹果单商户微信小程序",
           lastEditeTime: "大约一个月之前"
         }
       ]
