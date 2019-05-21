@@ -14,7 +14,7 @@ export default new Router({
     {
       path: "/myWorkBar",
       name: "myWorkBar",
-      redirect: "/myWorkBar/frontEnd/myProject",
+      redirect: "frontEnd/myProject",
       component: require("@/view/mainPage.vue").default,
       children: [
         {

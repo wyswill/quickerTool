@@ -42,29 +42,33 @@
       </el-header>
       <el-aside>
         <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
+          <!-- components -->
           <el-tab-pane>
             <span slot="label">
               <i class="iconfont icon-icon04"></i>
             </span>
             <components></components>
           </el-tab-pane>
+          <!-- tool -->
           <el-tab-pane>
             <span slot="label">
               <i class="iconfont icon-gongwenbao"></i>
             </span>
             <tool></tool>
           </el-tab-pane>
+          <!-- icon -->
           <el-tab-pane>
             <span slot="label">
               <i class="iconfont icon-smile"></i>
             </span>
-            我的行程
+            <icons></icons>
           </el-tab-pane>
+          <!-- 母版 -->
           <el-tab-pane>
             <span slot="label">
               <i class="iconfont icon-jiegouhua"></i>
             </span>
-            我的行程
+            <photos></photos>
           </el-tab-pane>
         </el-tabs>
       </el-aside>
@@ -77,7 +81,9 @@
 export default {
   components: {
     components: require("./component").default,
-    tool: require("./tool").default
+    tool: require("./tool").default,
+    icons: require("./icons").default,
+    photos: require("./photos").default
   },
   data() {
     return {
@@ -86,7 +92,7 @@ export default {
   },
   methods: {
     handleClick(tab, event) {
-      console.log(tab, event);
+      // console.log(tab, event);
     }
   }
 };
@@ -98,7 +104,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 3px 1px 16px 0px #ccc;
     i {
+      margin: 0 10px;
       &:hover {
         cursor: pointer;
       }
@@ -109,7 +117,6 @@ export default {
       .com {
         display: flex;
         flex-wrap: wrap;
-
         div {
           border: 1px solid #ccc;
           width: 32.6%;
@@ -118,6 +125,9 @@ export default {
           line-height: 100px;
           position: relative;
           font-size: 15px;
+          &:hover {
+            cursor: pointer;
+          }
           i {
             font-size: 20px;
             &::before {
@@ -126,6 +136,21 @@ export default {
               top: -21px;
               left: 37px;
             }
+          }
+        }
+      }
+      .switchIcon {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        i {
+          font-size: 29px;
+        }
+      }
+      .photos {
+        .head {
+          .el-input {
+            width: 82%;
           }
         }
       }

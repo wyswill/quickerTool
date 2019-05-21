@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "css-loader": "^2.1.1",
     "element-ui": "^2.8.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -74,7 +75,6 @@
     "chalk": "^2.4.1",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.6",
-    "css-loader": "^2.1.1",
     "del": "^3.0.0",
     "devtron": "^1.4.0",
     "electron": "^2.0.4",
