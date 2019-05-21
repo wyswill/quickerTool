@@ -40,39 +40,44 @@
           <i class="iconfont icon-ico"></i>二维码
         </span>
       </el-header>
-      <el-aside>
-        <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
-          <!-- components -->
-          <el-tab-pane>
-            <span slot="label">
-              <i class="iconfont icon-icon04"></i>
-            </span>
-            <components></components>
-          </el-tab-pane>
-          <!-- tool -->
-          <el-tab-pane>
-            <span slot="label">
-              <i class="iconfont icon-gongwenbao"></i>
-            </span>
-            <tool></tool>
-          </el-tab-pane>
-          <!-- icon -->
-          <el-tab-pane>
-            <span slot="label">
-              <i class="iconfont icon-smile"></i>
-            </span>
-            <icons></icons>
-          </el-tab-pane>
-          <!-- 母版 -->
-          <el-tab-pane>
-            <span slot="label">
-              <i class="iconfont icon-jiegouhua"></i>
-            </span>
-            <photos></photos>
-          </el-tab-pane>
-        </el-tabs>
-      </el-aside>
-      <el-aside></el-aside>
+      <div class="contents" style="display: flex;">
+        <el-aside>
+          <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
+            <!-- components -->
+            <el-tab-pane>
+              <span slot="label">
+                <i class="iconfont icon-icon04"></i>
+              </span>
+              <components></components>
+            </el-tab-pane>
+            <!-- tool -->
+            <el-tab-pane>
+              <span slot="label">
+                <i class="iconfont icon-gongwenbao"></i>
+              </span>
+              <tool></tool>
+            </el-tab-pane>
+            <!-- icon -->
+            <el-tab-pane>
+              <span slot="label">
+                <i class="iconfont icon-smile"></i>
+              </span>
+              <icons></icons>
+            </el-tab-pane>
+            <!-- 母版 -->
+            <el-tab-pane>
+              <span slot="label">
+                <i class="iconfont icon-jiegouhua"></i>
+              </span>
+              <photos></photos>
+            </el-tab-pane>
+          </el-tabs>
+        </el-aside>
+        <el-main>Main</el-main>
+        <el-aside class="right">
+          <rightTools></rightTools>
+        </el-aside>
+      </div>
     </el-container>
   </div>
 </template>
@@ -83,7 +88,8 @@ export default {
     components: require("./component").default,
     tool: require("./tool").default,
     icons: require("./icons").default,
-    photos: require("./photos").default
+    photos: require("./photos").default,
+    rightTools: require("./rightTools").default
   },
   data() {
     return {
@@ -100,6 +106,10 @@ export default {
 
 <style lang="less" >
 .project {
+  height: 100%;
+  .el-container {
+    height: 100%;
+  }
   .el-header {
     display: flex;
     align-items: center;
@@ -112,53 +122,82 @@ export default {
       }
     }
   }
-  .el-aside {
-    .el-tab-pane {
-      .com {
-        display: flex;
-        flex-wrap: wrap;
-        div {
-          border: 1px solid #ccc;
-          width: 32.6%;
-          height: 80px;
-          text-align: center;
-          line-height: 100px;
-          position: relative;
-          font-size: 15px;
-          &:hover {
-            cursor: pointer;
-          }
-          i {
-            font-size: 20px;
-            &::before {
-              font-size: 20px;
-              position: absolute;
-              top: -21px;
-              left: 37px;
-            }
-          }
-        }
-      }
-      .switchIcon {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        i {
-          font-size: 29px;
-        }
-      }
-      .photos {
-        .head {
-          .el-input {
-            width: 82%;
-          }
-          span{
-            &:hover{
+  .contents {
+    display: flex;
+    height: 100%;
+    .el-aside {
+      height: 100%;
+      .el-tab-pane {
+        .com {
+          display: flex;
+          flex-wrap: wrap;
+          div {
+            border: 1px solid #ccc;
+            width: 32.6%;
+            height: 80px;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+            font-size: 15px;
+            &:hover {
               cursor: pointer;
             }
+            i {
+              font-size: 20px;
+              &::before {
+                font-size: 20px;
+                position: absolute;
+                top: -21px;
+                left: 37px;
+              }
+            }
+          }
+        }
+        .switchIcon {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          i {
+            font-size: 29px;
+          }
+        }
+        .photos {
+          .head {
+            .el-input {
+              width: 82%;
+            }
+            span {
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+          .imgs {
+            width: 47%;
+            float: left;
+            text-align: center;
+            margin: 16px 3px;
+            border: 1px solid #ccc;
+            img {
+              width: 100%;
+            }
+            p {
+              border-top: 1px solid #ccc;
+            }
           }
         }
       }
+    }
+    .right {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #fff;
+      height: 100%;
+      margin-bottom: -60px;
+    }
+    .el-main {
+      background: rgb(245, 245, 245);
     }
   }
 }

@@ -6,6 +6,10 @@
         <i class="iconfont icon-jiahao-"></i>新建
       </span>
     </div>
+    <div class="imgs" v-for="(ele,index) in imgs" :key="index">
+      <img :src="ele.imgSrc" alt>
+      <p>{{ele.title}}</p>
+    </div>
   </div>
 </template>
 
@@ -13,7 +17,15 @@
 export default {
   data() {
     return {
-      input: ""
+      input: "",
+      imgs: [
+        { imgSrc: require("../../../assets/1.jpg"), title: "限时优惠副本" },
+        { imgSrc: require("../../../assets/2.jpg"), title: "限时优惠副本" },
+        { imgSrc: require("../../../assets/3.jpg"), title: "限时优惠副本" },
+        { imgSrc: require("../../../assets/4.jpg"), title: "限时优惠副本" },
+        { imgSrc: require("../../../assets/5.jpg"), title: "限时优惠副本" },
+        { imgSrc: require("../../../assets/6.jpg"), title: "限时优惠副本" }
+      ]
     };
   }
 };
