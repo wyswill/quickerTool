@@ -12,7 +12,9 @@
           <span slot="label">
             <i class="iconfont icon-article" style="font-size:20px;"></i>
           </span>
-          
+          <div style='htighe:100%;'>
+            <threes></threes>
+          </div>
         </el-tab-pane>
         <el-tab-pane>
           <span slot="label">
@@ -26,17 +28,23 @@
 
 <script>
 export default {
+  components: {
+    threes: require("./threes").default
+  },
   data() {
     return {
-      activeName: "0",
-      input: ""
+      activeName: "0"
     };
   }
 };
 </script>
 <style lang="less" scoped>
-.rightTools {
+.rightTools,
+.el-tab-pane,
+.el-tabs {
   height: 100%;
+}
+.rightTools {
   .el-container {
     .el-aside {
       width: 30px;
@@ -52,21 +60,8 @@ export default {
     }
     .el-tabs {
       width: 100%;
-      .el-tab-pane {
-        .head {
-          width: 75%;
-          span {
-            position: absolute;
-            top: 20px;
-            right: 0px;
-            i {
-              font-size: 32px;
-              &:hover {
-                cursor: pointer;
-              }
-            }
-          }
-        }
+      .el-tabs__content{
+       overflow: auto;
       }
     }
   }

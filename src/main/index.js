@@ -23,10 +23,10 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1440,
     height: 1024,
-    maxWidth: 1440,
-    maxHeight: 1024,
-    minWidth: 1440,
-    minHeight: 1024,
+    // maxWidth: 1440,
+    // maxHeight: 1024,
+    // minWidth: 1440,
+    // minHeight: 1024,
     useContentSize: true,
     // frame: false,
     show: false

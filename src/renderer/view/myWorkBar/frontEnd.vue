@@ -19,7 +19,7 @@
         </el-menu-item>
       </el-menu>
     </el-header>
-    <el-main style="overflow: hidden;">
+    <el-main>
       <router-view></router-view>
     </el-main>
   </el-container>
@@ -72,6 +72,9 @@ export default {
   &:hover {
     background-color: rgb(255, 255, 255) !important;
   }
+}
+.el-main {
+  overflow-x: hidden;
 }
 </style>
 

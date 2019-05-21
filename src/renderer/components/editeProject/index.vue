@@ -40,7 +40,7 @@
           <i class="iconfont icon-ico"></i>二维码
         </span>
       </el-header>
-      <div class="contents" style="display: flex;">
+      <div class="contents" style="display: flex;overflow-x: hidden;">
         <el-aside>
           <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true">
             <!-- components -->
