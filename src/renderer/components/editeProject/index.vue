@@ -130,16 +130,11 @@ export default {
     save() {
       let main = document.querySelector(".mian");
       const fileName = this.$route.params.name,
-        filePath = `./out/${fileName}.html`;
-      fs.writeFile(`${filePath}.html`, `${main.innerHTML}`, "utf8", function(
-        error
-      ) {
-        if (error) {
-          console.log(error);
-          return false;
-        }
-        console.log("写入成功");
-      });
+        filePath = `./out/${fileName}.html`,
+        writeString = fs.createWriteStream(filePath, { encoding: "utf8" });
+      writeString.write(main.innerHTML);
+      writeString.end();
+      console.log("写入完成");
     }
   }
 };

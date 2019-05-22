@@ -13,6 +13,7 @@
 </template>
 
 <script>
+const fs = require("fs");
 export default {
   components: {
     attrBox: require("../attrBox").default
@@ -52,6 +53,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("setPageZoom", this.value);
+    this.init();
     this.fock();
   },
   methods: {
@@ -96,6 +98,27 @@ export default {
         ele.onmouseenter = e => this.active(e);
         ele.onmouseleave = e => this.cansolActive(e);
       });
+    },
+    init() {
+      let title = document.querySelector(".el-icon-back");
+      let filePath = `./out/${title.innerText}.html`;
+      let main = document.querySelector(".mian");
+      var data = "";
+      // 创建可读流
+      var readerStream = fs.createReadStream(filePath);
+      // 设置编码为 utf8。
+      readerStream.setEncoding("UTF8");
+      // 处理流事件 --> data, end, and error
+      readerStream.on("data", function(chunk) {
+        data += chunk;
+      });
+      readerStream.on("end", function() {
+        main.innerHTML = data;
+      });
+      readerStream.on("error", function(err) {
+        console.log(err.stack);
+      });
+      console.log("程序执行完毕");
     }
   }
 };
