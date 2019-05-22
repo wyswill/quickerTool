@@ -1,7 +1,7 @@
 <template>
   <el-container>
-    <el-slider v-model="value" vertical height="500px"></el-slider>
-    <div :style="pageStyle"></div>
+    <el-slider v-model="value" vertical height="500px" :show-tooltip="true"></el-slider>
+    <div :style="pageStyle" @drop="dropHander" @dragover="dragoverHander" class="mian"></div>
   </el-container>
 </template>
 
@@ -14,7 +14,8 @@ export default {
         width: "375px",
         height: "667px",
         background: "#fff",
-        zoom: ""
+        zoom: "",
+        "z-index": "99999"
       }
     };
   },
@@ -35,6 +36,19 @@ export default {
   },
   mounted() {
     this.$store.dispatch("setPageZoom", this.value);
+  },
+  methods: {
+    dropHander(e) {
+      e.preventDefault();
+      var data = e.dataTransfer.getData("text");
+      let target = e.target;
+      let html = this.insert_html(data);
+      target.append(html);
+    },
+    dragoverHander(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "move";
+    }
   }
 };
 </script>

@@ -1,0 +1,166 @@
+export default function(type) {
+  const icons = [
+    {
+      template: () => {
+        let input = document.createElement("input");
+        input.classList.add("block");
+        return input;
+      },
+      title: "文字"
+    },
+    {
+      template: () => {
+        let div = document.createElement("div");
+        div.style.width = "50px";
+        div.style.height = "50px";
+        div.style.borderWidth = "1px";
+        div.style.borderStyle = "solid";
+        div.style.borderColor = "#000";
+        div.style.display = "inline-block";
+        return div;
+      },
+      title: "矩形"
+    },
+    {
+      template: () => {
+        let div = document.createElement("div");
+        div.style.width = "50px";
+        div.style.height = "50px";
+        div.style.borderWidth = "1px";
+        div.style.borderStyle = "solid";
+        div.style.borderColor = "#000";
+        div.style.display = "inline-block";
+        div.style.borderRadius = "50%";
+        return div;
+      },
+      title: "圆形"
+    },
+    {
+      template: () => document.createElement("hr"),
+      title: "水平线"
+    },
+    {
+      template: "icon-chuizhixian",
+      title: "垂直线"
+    },
+    {
+      template: () => {
+        let btn = document.createElement("button");
+        btn.innerText = "这是一个按钮";
+        btn.classList.add("block");
+        return btn;
+      },
+      title: "按钮"
+    },
+    {
+      template: () => {
+        let img = document.createElement("img");
+        img.src = require("../assets/lock.png");
+        img.alt = "";
+        img.classList.add("block");
+        return img;
+      },
+      title: "图片"
+    },
+    {
+      template: () => {
+        let link = document.createElement("a");
+        link.href = "#";
+        link.innerText = "这是一个链接";
+        return link;
+      },
+      title: "链接"
+    },
+    {
+      template: () => {
+        let input = document.createElement("input");
+        input.type = "file";
+        input.classList.add("block");
+        return input;
+      },
+      title: "选择文件"
+    },
+    {
+      template: () => {
+        let input = document.createElement("input");
+        input.type = "text";
+        input.classList.add("block");
+        return input;
+      },
+      title: "单行输入"
+    },
+    {
+      template: () => {
+        let textarea = document.createElement("textarea");
+        textarea.classList.add("block");
+        return textarea;
+      },
+      title: "多行输入"
+    },
+    {
+      template: "icon-xialakuang",
+      title: "下拉框"
+    },
+    {
+      template: () => {
+        let radio = document.createElement("input");
+        radio.type = "radio";
+        return radio;
+      },
+      title: "单选按钮"
+    },
+    {
+      template: () => {
+        let checkBox = document.createElement("input");
+        checkBox.type = "checkbox";
+        return checkBox;
+      },
+      title: "复选框"
+    },
+    {
+      template: () => {
+        let tab = document.createElement("table");
+        let tr = document.createElement("tr");
+        for (let i = 0; i < 4; i++) {
+          let th = document.createElement("th");
+          th.innerText = `标题${i}`;
+          tr.appendChild(th);
+        }
+        tab.appendChild(tr);
+        let tr2 = document.createElement("tr");
+        for (let i = 0; i < 4; i++) {
+          let td = document.createElement("td");
+          td.innerText = `内容${i}`;
+          tr2.appendChild(td);
+        }
+        tab.appendChild(tr2);
+        tab.border = 1;
+        return tab;
+      },
+      title: "表格"
+    },
+    {
+      template: "icon-dilan1",
+      title: "标题栏"
+    },
+    {
+      template: "icon-dilan",
+      title: "底栏"
+    },
+    {
+      template: "icon-kaiguanguan-open",
+      title: "开关"
+    },
+    {
+      template: "icon-carousel",
+      title: "轮播图"
+    }
+  ];
+  let html = "";
+  icons.map(ele => {
+    if (ele.title == type) {
+      html = ele.template();
+    }
+  });
+  return html;
+}

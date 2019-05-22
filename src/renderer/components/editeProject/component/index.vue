@@ -1,67 +1,112 @@
 <template>
   <div class="com">
-    <div>
-      <i class="iconfont icon-wenzi"></i>文字
-    </div>
-    <div>
-      <i class="iconfont icon-juxing"></i>矩形
-    </div>
-    <div>
-      <i class="iconfont icon-yuanxingweixuanzhong"></i>圆形
-    </div>
-    <div>
-      <i class="iconfont icon-shuipingxian"></i>水平线
-    </div>
-    <div>
-      <i class="iconfont icon-chuizhixian"></i>垂直线
-    </div>
-    <div>
-      <i class="iconfont icon-anniu"></i>按钮
-    </div>
-    <div>
-      <i class="iconfont icon-thumb"></i>图片
-    </div>
-    <div>
-      <i class="iconfont icon-lianjie"></i>链接
-    </div>
-    <div>
-      <i class="iconfont icon-xuanzewenjian"></i>选择文件
-    </div>
-    <div>
-      <i class="iconfont icon-danhangshuru"></i>单行输入
-    </div>
-    <div>
-      <i class="iconfont icon-textarea1"></i>多行输入
-    </div>
-    <div>
-      <i class="iconfont icon-xialakuang"></i>下拉框
-    </div>
-    <div>
-      <i class="iconfont icon-danxuananniu"></i>单选按钮
-    </div>
-    <div>
-      <i class="iconfont icon-xuanzhong"></i>复选框
-    </div>
-    <div>
-      <i class="iconfont icon-biaoge"></i>表格
-    </div>
-    <div>
-      <i class="iconfont icon-dilan1"></i>标题栏
-    </div>
-    <div>
-      <i class="iconfont icon-dilan"></i>底栏
-    </div>
-    <div>
-      <i class="iconfont icon-kaiguanguan-open"></i>开关
-    </div>
-    <div>
-      <i class="iconfont icon-carousel"></i>轮播图
+    <div
+      v-for="(ele,index) in icons"
+      :key="index"
+      draggable
+      @drag="dragHander"
+      @dragstart="dragstart_handler"
+      :id="ele.title"
+    >
+      <i class="iconfont" :class="ele.class"></i>
+      {{ele.title}}
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      icons: [
+        {
+          class: "icon-wenzi",
+          title: "文字"
+        },
+        {
+          class: "icon-juxing",
+          title: "矩形"
+        },
+        {
+          class: "icon-yuanxingweixuanzhong",
+          title: "圆形"
+        },
+        {
+          class: "icon-shuipingxian",
+          title: "水平线"
+        },
+        {
+          class: "icon-chuizhixian",
+          title: "垂直线"
+        },
+        {
+          class: "icon-anniu",
+          title: "按钮"
+        },
+        {
+          class: "icon-thumb",
+          title: "图片"
+        },
+        {
+          class: "icon-lianjie",
+          title: "链接"
+        },
+        {
+          class: "icon-xuanzewenjian",
+          title: "选择文件"
+        },
+        {
+          class: "icon-danhangshuru",
+          title: "单行输入"
+        },
+        {
+          class: "icon-textarea1",
+          title: "多行输入"
+        },
+        {
+          class: "icon-xialakuang",
+          title: "下拉框"
+        },
+        {
+          class: "icon-danxuananniu",
+          title: "单选按钮"
+        },
+        {
+          class: "icon-xuanzhong",
+          title: "复选框"
+        },
+        {
+          class: "icon-biaoge",
+          title: "表格"
+        },
+        {
+          class: "icon-dilan1",
+          title: "标题栏"
+        },
+        {
+          class: "icon-dilan",
+          title: "底栏"
+        },
+        {
+          class: "icon-kaiguanguan-open",
+          title: "开关"
+        },
+        {
+          class: "icon-carousel",
+          title: "轮播图"
+        }
+      ]
+    };
+  },
+  methods: {
+    dragHander(e) {
+      // console.log(e.target);
+    },
+    dragstart_handler(e) {
+      e.dataTransfer.setData("text", e.target.id);
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>

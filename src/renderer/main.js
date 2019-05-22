@@ -11,7 +11,9 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 
 /* iconfont */
-import './assets/icon/iconfont.css';
+import "./assets/icon/iconfont.css";
+import insert_html from "./tools/add_component";
+Vue.prototype.insert_html = insert_html;
 
 if (!process.env.IS_WEB) Vue.use(require("vue-electron"));
 Vue.http = Vue.prototype.$http = axios;

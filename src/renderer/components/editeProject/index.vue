@@ -210,5 +210,8 @@ export default {
       padding: 0;
     }
   }
+  .block {
+    display: block;
+  }
 }
 </style>
