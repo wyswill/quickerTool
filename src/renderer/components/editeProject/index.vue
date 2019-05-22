@@ -11,9 +11,9 @@
           <!-- 保存 -->
           <i class="iconfont icon-ruanpan"></i>
           <!-- 上一步 -->
-          <i class="iconfont icon-chexiao"></i>
+          <i class="iconfont icon-chexiao" @click="back"></i>
           <!-- 下一步 -->
-          <i class="iconfont icon-xiayibu"></i>
+          <i class="iconfont icon-xiayibu" @click="forword"></i>
         </span>
         <span>
           <i class="iconfont icon-tucengzhizuoyuweihu"></i>
@@ -99,7 +99,8 @@ export default {
   },
   data() {
     return {
-      activeName: "0"
+      activeName: "0",
+      itemStank: []
     };
   },
   methods: {
@@ -111,6 +112,19 @@ export default {
     },
     sub() {
       this.$store.dispatch("pageZoomSub");
+    },
+    back() {
+      let main = document.querySelector(".mian");
+      let lastChlid = main.lastChild;
+      if (lastChlid) {
+        this.itemStank.push(lastChlid);
+        main.removeChild(lastChlid);
+      }
+    },
+    forword() {
+      let main = document.querySelector(".mian");
+      let last = this.itemStank.pop();
+      if (last) main.append(last);
     }
   }
 };
