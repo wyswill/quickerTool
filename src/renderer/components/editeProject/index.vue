@@ -9,7 +9,7 @@
         >{{this.$route.params.name}}</i>
         <span>
           <!-- 保存 -->
-          <i class="iconfont icon-ruanpan"></i>
+          <i class="iconfont icon-ruanpan" @click="save"></i>
           <!-- 上一步 -->
           <i class="iconfont icon-chexiao" @click="back"></i>
           <!-- 下一步 -->
@@ -88,6 +88,7 @@
 </template>
 
 <script>
+const fs = require("fs");
 export default {
   components: {
     components: require("./component").default,
@@ -125,6 +126,20 @@ export default {
       let main = document.querySelector(".mian");
       let last = this.itemStank.pop();
       if (last) main.append(last);
+    },
+    save() {
+      let main = document.querySelector(".mian");
+      const fileName = this.$route.params.name,
+        filePath = `./out/${fileName}.html`;
+      fs.writeFile(`${filePath}.html`, `${main.innerHTML}`, "utf8", function(
+        error
+      ) {
+        if (error) {
+          console.log(error);
+          return false;
+        }
+        console.log("写入成功");
+      });
     }
   }
 };
