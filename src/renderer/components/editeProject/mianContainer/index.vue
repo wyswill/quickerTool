@@ -1,12 +1,22 @@
 <template>
   <el-container>
     <el-slider v-model="value" vertical height="500px" :show-tooltip="true"></el-slider>
-    <div :style="pageStyle" @drop="dropHander" @dragover="dragoverHander" class="mian"></div>
+    <div
+      :style="pageStyle"
+      @drop="dropHander"
+      @dragover="dragoverHander"
+      class="mian"
+      @click="click"
+    ></div>
+    <attrBox :styles="styles"></attrBox>
   </el-container>
 </template>
 
 <script>
 export default {
+  components: {
+    attrBox: require("../attrBox").default
+  },
   data() {
     return {
       value: 50,
@@ -15,7 +25,13 @@ export default {
         height: "667px",
         background: "#fff",
         zoom: "",
-        "z-index": "99999"
+        "z-index": "99999",
+        overflow: "auto"
+      },
+      styles: {
+        sty: [],
+        id: "",
+        class: ""
       }
     };
   },
@@ -36,6 +52,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("setPageZoom", this.value);
+    this.fock();
   },
   methods: {
     dropHander(e) {
@@ -44,10 +61,41 @@ export default {
       let target = e.target;
       let html = this.insert_html(data);
       target.append(html);
+      this.fock();
     },
     dragoverHander(e) {
       e.preventDefault();
       e.dataTransfer.dropEffect = "move";
+    },
+    active(e) {
+      let target = e.target;
+      target.style.borderWidth = "1px";
+      target.style.borderStyle = "solid";
+      target.style.borderColor = "red";
+      /*  console.log(target.style.width);
+      console.log(target.style.height); */
+    },
+    cansolActive(e) {
+      let target = e.target;
+      target.style.border = "none";
+    },
+    click(e) {
+      let target = e.target;
+      let styles = target.style.cssText.split(";");
+      let { id, className } = target;
+      this.styles.id = id;
+      this.styles.class = className;
+      this.styles.sty = styles;
+    },
+    fock() {
+      let main = document.querySelector(".mian");
+      main.onmouseenter = e => this.active(e);
+      main.onmouseleave = e => this.cansolActive(e);
+      let chliden = Array.from(main.children);
+      chliden.map(ele => {
+        ele.onmouseenter = e => this.active(e);
+        ele.onmouseleave = e => this.cansolActive(e);
+      });
     }
   }
 };

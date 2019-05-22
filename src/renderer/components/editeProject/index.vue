@@ -226,6 +226,7 @@ export default {
   }
   .block {
     display: block;
+    width: 100%;
   }
 }
 </style>

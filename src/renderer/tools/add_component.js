@@ -4,7 +4,9 @@ export default function(type) {
       template: () => {
         let input = document.createElement("input");
         input.classList.add("block");
-        return input;
+        let shell = document.createElement("div");
+        shell.appendChild(input);
+        return shell;
       },
       title: "文字"
     },
@@ -17,7 +19,9 @@ export default function(type) {
         div.style.borderStyle = "solid";
         div.style.borderColor = "#000";
         div.style.display = "inline-block";
-        return div;
+        let shell = document.createElement("div");
+        shell.appendChild(div);
+        return shell;
       },
       title: "矩形"
     },
@@ -31,12 +35,19 @@ export default function(type) {
         div.style.borderColor = "#000";
         div.style.display = "inline-block";
         div.style.borderRadius = "50%";
-        return div;
+        let shell = document.createElement("div");
+        shell.appendChild(div);
+        return shell;
       },
       title: "圆形"
     },
     {
-      template: () => document.createElement("hr"),
+      template: () => {
+        let hr = document.createElement("hr");
+        let shell = document.createElement("div");
+        shell.appendChild(hr);
+        return shell;
+      },
       title: "水平线"
     },
     {
@@ -48,7 +59,9 @@ export default function(type) {
         let btn = document.createElement("button");
         btn.innerText = "这是一个按钮";
         btn.classList.add("block");
-        return btn;
+        let shell = document.createElement("div");
+        shell.appendChild(btn);
+        return shell;
       },
       title: "按钮"
     },
@@ -58,7 +71,9 @@ export default function(type) {
         img.src = require("../assets/lock.png");
         img.alt = "";
         img.classList.add("block");
-        return img;
+        let shell = document.createElement("div");
+        shell.appendChild(img);
+        return shell;
       },
       title: "图片"
     },
@@ -67,7 +82,9 @@ export default function(type) {
         let link = document.createElement("a");
         link.href = "#";
         link.innerText = "这是一个链接";
-        return link;
+        let shell = document.createElement("div");
+        shell.appendChild(link);
+        return shell;
       },
       title: "链接"
     },
@@ -76,7 +93,9 @@ export default function(type) {
         let input = document.createElement("input");
         input.type = "file";
         input.classList.add("block");
-        return input;
+        let shell = document.createElement("div");
+        shell.appendChild(input);
+        return shell;
       },
       title: "选择文件"
     },
@@ -85,7 +104,9 @@ export default function(type) {
         let input = document.createElement("input");
         input.type = "text";
         input.classList.add("block");
-        return input;
+        let shell = document.createElement("div");
+        shell.appendChild(input);
+        return shell;
       },
       title: "单行输入"
     },
@@ -93,7 +114,9 @@ export default function(type) {
       template: () => {
         let textarea = document.createElement("textarea");
         textarea.classList.add("block");
-        return textarea;
+        let shell = document.createElement("div");
+        shell.appendChild(textarea);
+        return shell;
       },
       title: "多行输入"
     },
@@ -105,7 +128,9 @@ export default function(type) {
       template: () => {
         let radio = document.createElement("input");
         radio.type = "radio";
-        return radio;
+        let shell = document.createElement("div");
+        shell.appendChild(radio);
+        return shell;
       },
       title: "单选按钮"
     },
@@ -113,7 +138,9 @@ export default function(type) {
       template: () => {
         let checkBox = document.createElement("input");
         checkBox.type = "checkbox";
-        return checkBox;
+        let shell = document.createElement("div");
+        shell.appendChild(checkBox);
+        return shell;
       },
       title: "复选框"
     },
@@ -135,7 +162,9 @@ export default function(type) {
         }
         tab.appendChild(tr2);
         tab.border = 1;
-        return tab;
+        let shell = document.createElement("div");
+        shell.appendChild(tab);
+        return shell;
       },
       title: "表格"
     },
