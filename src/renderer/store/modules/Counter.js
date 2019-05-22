@@ -1,25 +1,39 @@
 const state = {
-  main: 0
-}
+  pageZoom: 0
+};
 
-const mutations = {
-  DECREMENT_MAIN_COUNTER (state) {
-    state.main--
-  },
-  INCREMENT_MAIN_COUNTER (state) {
-    state.main++
+const getters = {
+  getPageZoom(state) {
+    return state.pageZoom;
   }
-}
+};
+const mutations = {
+  setPageZoom(state, data) {
+    state.pageZoom = data;
+  },
+  pageZoomPlus(state) {
+    state.pageZoom++;
+  },
+  pageZoomSub(state) {
+    state.pageZoom--;
+  }
+};
 
 const actions = {
-  someAsyncTask ({ commit }) {
-    // do something async
-    commit('INCREMENT_MAIN_COUNTER')
+  setPageZoom(ctx, data) {
+    ctx.commit("setPageZoom", data);
+  },
+  pageZoomPlus(ctx) {
+    ctx.commit("pageZoomPlus");
+  },
+  pageZoomSub(ctx) {
+    ctx.commit("pageZoomSub");
   }
-}
+};
 
 export default {
   state,
   mutations,
-  actions
-}
+  actions,
+  getters
+};

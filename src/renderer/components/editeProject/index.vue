@@ -24,9 +24,10 @@
           <i class="iconfont icon-jiegouhua"></i>
         </span>
         <span>
-          <i class="iconfont icon-jiahao-"></i>
-          <i class="iconfont icon-fangdajing-copy"></i>80%
-          <i class="iconfont icon--hao"></i>
+          <i class="iconfont icon-jiahao-" @click="add"></i>
+          <i class="iconfont icon-fangdajing-copy"></i>
+          {{$store.getters.getPageZoom}}%
+          <i class="iconfont icon--hao" @click="sub"></i>
         </span>
         <span>
           <i class="iconfont icon-tupianguanli"></i>页面库
@@ -73,7 +74,11 @@
             </el-tab-pane>
           </el-tabs>
         </el-aside>
-        <el-main>Main</el-main>
+        <!-- 主操作 -->
+        <el-main>
+          <mianContainer></mianContainer>
+        </el-main>
+        <!-- 右边菜单 -->
         <el-aside class="right">
           <rightTools></rightTools>
         </el-aside>
@@ -89,7 +94,8 @@ export default {
     tool: require("./tool").default,
     icons: require("./icons").default,
     photos: require("./photos").default,
-    rightTools: require("./rightTools").default
+    rightTools: require("./rightTools").default,
+    mianContainer: require("./mianContainer").default
   },
   data() {
     return {
@@ -99,6 +105,12 @@ export default {
   methods: {
     handleClick(tab, event) {
       // console.log(tab, event);
+    },
+    add() {
+      this.$store.dispatch("pageZoomPlus");
+    },
+    sub() {
+      this.$store.dispatch("pageZoomSub");
     }
   }
 };
@@ -115,6 +127,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     box-shadow: 3px 1px 16px 0px #ccc;
+    z-index: 9999;
     i {
       margin: 0 10px;
       &:hover {
@@ -189,15 +202,12 @@ export default {
       }
     }
     .right {
-      position: absolute;
-      top: 60px;
-      right: 0;
       background: #fff;
       height: 100%;
-      margin-bottom: -60px;
     }
     .el-main {
       background: rgb(245, 245, 245);
+      padding: 0;
     }
   }
 }
