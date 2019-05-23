@@ -4,5 +4,6 @@ export default function(type) {
     按钮: "qkButton",
     链接: "qkLink"
   };
+  /* asasd */
   return iconsObj[type];
 }
