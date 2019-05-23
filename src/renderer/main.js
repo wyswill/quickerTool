@@ -25,6 +25,15 @@ Vue.component("qkButton", qkButton);
 import qkLink from "./components/public_single_components/qkLink.vue";
 Vue.use(qkLink);
 Vue.component("qkLink", qkLink);
+import qkContainer from "./components/public_single_components/qkContainer.vue";
+Vue.use(qkContainer);
+Vue.component("qkContainer", qkContainer);
+import qkContainerUpDowm from "./components/public_single_components/qkContainerUpDowm.vue";
+Vue.use(qkContainerUpDowm);
+Vue.component("qkContainerUpDowm", qkContainerUpDowm);
+import qkContainerLeftRight from "./components/public_single_components/qkContainerLeftRight.vue";
+Vue.use(qkContainerLeftRight);
+Vue.component("qkContainerLeftRight", qkContainerLeftRight);
 
 if (!process.env.IS_WEB) Vue.use(require("vue-electron"));
 Vue.http = Vue.prototype.$http = axios;
@@ -32,7 +41,15 @@ Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
-  components: { App, qktext, qkButton, qkLink },
+  components: {
+    App,
+    qktext,
+    qkButton,
+    qkLink,
+    qkContainer,
+    qkContainerUpDowm,
+    qkContainerLeftRight
+  },
   router,
   store,
   template: "<App/>"

@@ -27,6 +27,18 @@ export default {
           title: "水平线"
         },
         {
+          class: "icon-juxing",
+          title: "容器"
+        },
+        {
+          class: "icon-juxing",
+          title: "容器上下"
+        },
+        {
+          class: "icon-juxing",
+          title: "容器左右"
+        },
+        {
           class: "icon-chuizhixian",
           title: "垂直线"
         },

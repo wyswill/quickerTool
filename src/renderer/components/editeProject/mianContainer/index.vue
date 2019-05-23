@@ -8,7 +8,9 @@
       class="mian"
       @click="click"
     >
-      <component v-for="(ele,index) in cmps" :key="index" v-bind:is="ele"></component>
+      <div class="content" v-for="(ele,index) in cmps" :key="index">
+        <component v-bind:is="ele"></component>
+      </div>
     </div>
     <attrBox :styles="styles"></attrBox>
   </el-container>
