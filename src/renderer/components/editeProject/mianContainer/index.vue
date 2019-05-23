@@ -69,6 +69,9 @@ export default {
       e.preventDefault();
       e.dataTransfer.dropEffect = "move";
     },
+    dragstart_handler(e) {
+      e.dataTransfer.setData("text", e.target.id);
+    },
     active(e) {
       let target = e.target;
       target.style.borderWidth = "1px";

@@ -4,7 +4,6 @@
       v-for="(ele,index) in icons"
       :key="index"
       draggable
-      @drag="dragHander"
       @dragstart="dragstart_handler"
       :id="ele.title"
     >
@@ -99,9 +98,6 @@ export default {
     };
   },
   methods: {
-    dragHander(e) {
-      // console.log(e.target);
-    },
     dragstart_handler(e) {
       e.dataTransfer.setData("text", e.target.id);
     }

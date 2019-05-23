@@ -4,6 +4,8 @@ export default function(type) {
       template: () => {
         let input = document.createElement("input");
         input.classList.add("block");
+        input.setAttribute("v-on:dragstart", "dragstart_handler");
+        input.setAttribute("draggable", "true");
         let shell = document.createElement("div");
         shell.appendChild(input);
         return shell;
@@ -19,6 +21,8 @@ export default function(type) {
         div.style.borderStyle = "solid";
         div.style.borderColor = "#000";
         div.style.display = "inline-block";
+        div.setAttribute("v-on:dragstart", "dragstart_handler");
+        div.setAttribute("draggable", "true");
         let shell = document.createElement("div");
         shell.appendChild(div);
         return shell;
@@ -35,6 +39,8 @@ export default function(type) {
         div.style.borderColor = "#000";
         div.style.display = "inline-block";
         div.style.borderRadius = "50%";
+        div.setAttribute("v-on:dragstart", "dragstart_handler");
+        div.setAttribute("draggable", "true");
         let shell = document.createElement("div");
         shell.appendChild(div);
         return shell;
